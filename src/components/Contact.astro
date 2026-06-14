@@ -1,0 +1,49 @@
+---
+import { contact } from "../data/contact";
+import { profile } from "../data/profile";
+import SectionHeading from "./ui/SectionHeading.astro";
+import Button from "./ui/Button.astro";
+import MailIcon from "./icons/MailIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+---
+
+<section id="contact" class="py-20" aria-labelledby="contact-heading">
+  <SectionHeading
+    title="Contact"
+    subtitle="Feel free to reach out for projects, job opportunities, or collaborations."
+  />
+
+  <div
+    class="rounded-xl border border-border bg-surface-card p-8 md:p-10"
+  >
+    <p class="text-base text-text-secondary">{contact.availability}</p>
+
+    <a
+      href={`mailto:${contact.email}`}
+      class="mt-4 inline-flex items-center gap-2 text-lg font-medium text-text-primary transition-colors hover:text-accent"
+    >
+      <MailIcon class="h-5 w-5" />
+      {contact.email}
+    </a>
+
+    <p class="mt-2 text-sm text-text-muted">
+      {contact.location} · {contact.phone}
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href={`mailto:${contact.email}`}>
+        <MailIcon class="h-4 w-4" />
+        Send Email
+      </Button>
+      <Button href={profile.github} variant="ghost" external>
+        <GitHubIcon class="h-4 w-4" />
+        GitHub
+      </Button>
+      <Button href={profile.linkedin} variant="ghost" external>
+        <LinkedInIcon class="h-4 w-4" />
+        LinkedIn
+      </Button>
+    </div>
+  </div>
+</section>

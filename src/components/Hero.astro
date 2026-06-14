@@ -1,0 +1,53 @@
+---
+import { profile } from "../data/profile";
+import Button from "./ui/Button.astro";
+import DownloadIcon from "./icons/DownloadIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+---
+
+<section
+  id="hero"
+  class="flex min-h-[85vh] flex-col justify-center pt-24 pb-16"
+  aria-labelledby="hero-heading"
+>
+  <h1
+    id="hero-heading"
+    class="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl md:text-6xl"
+  >
+    {profile.name}
+  </h1>
+
+  <p class="mt-3 text-xl text-text-secondary sm:text-2xl">{profile.title}</p>
+
+  <p class="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
+    {profile.summary}
+  </p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3">
+    <Button href={profile.cvUrl}>
+      CV
+    </Button>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub profile"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface-elevated text-text-secondary transition-colors hover:border-border hover:bg-surface-card hover:text-text-primary"
+      >
+        <GitHubIcon class="h-5 w-5" />
+      </a>
+      <a
+        href={profile.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn profile"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface-elevated text-text-secondary transition-colors hover:border-border hover:bg-surface-card hover:text-text-primary"
+      >
+        <LinkedInIcon class="h-5 w-5" />
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import type { Project } from "../data/projects";
+import TechTag from "./ui/TechTag.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article
+  class="group flex flex-col rounded-xl border border-border bg-surface-card p-6 transition-colors duration-200 hover:border-border hover:bg-surface-elevated"
+>
+  <div class="flex items-start justify-between gap-4">
+    <h3 class="text-lg font-semibold text-text-primary">{project.name}</h3>
+    <a
+      href={project.githubUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${project.name} GitHub repository`}
+      class="shrink-0 text-text-muted transition-colors hover:text-text-primary"
+    >
+      <GitHubIcon class="h-5 w-5" />
+    </a>
+  </div>
+
+  <p class="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">
+    {project.description}
+  </p>
+
+  <div class="mt-5 flex flex-wrap gap-2">
+    {project.technologies.map((tech) => <TechTag label={tech} />)}
+  </div>
+</article>

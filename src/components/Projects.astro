@@ -1,0 +1,16 @@
+---
+import { projects } from "../data/projects";
+import SectionHeading from "./ui/SectionHeading.astro";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="projects" class="py-20" aria-labelledby="projects-heading">
+  <SectionHeading
+    title="Projects"
+    subtitle="A selection of open-source and personal projects I've built."
+  />
+
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

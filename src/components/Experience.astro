@@ -1,0 +1,56 @@
+---
+import { timeline } from "../data/experience";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const typeLabels = {
+  work: "Experience",
+  education: "Education",
+} as const;
+---
+
+<section id="experience" class="py-20" aria-labelledby="experience-heading">
+  <SectionHeading
+    title="Experience & Education"
+    subtitle="My professional journey and academic background."
+  />
+
+  <ol class="relative space-y-8 border-l border-border pl-6">
+    {
+      timeline.map((entry) => (
+        <li class="relative">
+          <span
+            class="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-accent bg-surface"
+            aria-hidden="true"
+          />
+
+          <div class="rounded-xl border border-border bg-surface-card p-5 transition-colors hover:bg-surface-elevated">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">
+                {typeLabels[entry.type]}
+              </span>
+              <span class="text-text-muted">·</span>
+              <time class="text-sm text-text-muted">{entry.period}</time>
+            </div>
+
+            <h3 class="mt-2 text-lg font-semibold text-text-primary">
+              {entry.title}
+            </h3>
+
+            <p class="mt-1 text-sm text-text-secondary">
+              {entry.organization}
+              {entry.location && (
+                <span class="text-text-muted"> — {entry.location}</span>
+              )}
+            </p>
+
+            {entry.description && (
+              <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                {entry.description}
+              </p>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
