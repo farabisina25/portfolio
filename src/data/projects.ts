@@ -3,10 +3,24 @@ export interface Project {
   name: string;
   description: string;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
+  videoId?: string;
+  caseStudyHref?: string;
+  featured?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: "action-rpg",
+    name: "Legend of the Forest",
+    description:
+      "A 2D top-down action RPG built in Unity 6. Three weapons, a stamina-based dash, enemies with distinct attack patterns, destructible props, and fade transitions between scenes. Written in C# with URP, Cinemachine, the New Input System, ScriptableObjects, and 2D Tilemaps.",
+    technologies: ["Unity 6", "C#", "URP 2D", "Cinemachine"],
+    videoId: "Qnb2fV45Fnw",
+    caseStudyHref: "/projects/action-rpg",
+    githubUrl: "https://github.com/farabisina25/LegendOfTheForest",
+    featured: true,
+  },
   {
     id: "unicorn",
     name: "Unicorn — Room Matching Platform",

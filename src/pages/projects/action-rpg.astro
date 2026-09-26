@@ -1,0 +1,171 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import TechTag from "../../components/ui/TechTag.astro";
+import GitHubIcon from "../../components/icons/GitHubIcon.astro";
+import { actionRpg } from "../../data/actionRpg";
+import { profile } from "../../data/profile";
+
+const embedUrl = `https://www.youtube-nocookie.com/embed/${actionRpg.videoId}?rel=0`;
+---
+
+<Layout
+  title={`${actionRpg.name} | ${profile.name}`}
+  description={actionRpg.summary}
+>
+  <Header />
+
+  <main class="mx-auto max-w-5xl px-6 pt-28 pb-16">
+    <a
+      href="/#projects"
+      class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+    >
+      ← Back to projects
+    </a>
+
+    <p class="mt-8 font-mono text-xs uppercase tracking-wider text-accent">
+      2D top-down action RPG · Unity 6
+    </p>
+    <div class="mt-3 flex items-start justify-between gap-4">
+      <h1 class="text-3xl font-semibold tracking-tight text-text-primary md:text-5xl">
+        {actionRpg.name}
+      </h1>
+      <a
+        href={actionRpg.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${actionRpg.name} GitHub repository`}
+        class="mt-2 shrink-0 text-text-muted transition-colors hover:text-text-primary"
+      >
+        <GitHubIcon class="h-6 w-6" />
+      </a>
+    </div>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-text-secondary md:text-lg">
+      {actionRpg.summary}
+    </p>
+
+    <div class="mt-8 overflow-hidden rounded-2xl border border-border bg-black">
+      <div class="aspect-video">
+        <iframe
+          src={embedUrl}
+          title={`${actionRpg.name} gameplay`}
+          class="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Overview</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-text-secondary md:text-base">
+        {actionRpg.overview.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <section class="mt-14 grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">Weapons</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <p class="mt-6 text-sm leading-relaxed text-text-secondary">
+          {actionRpg.weaponsIntro}
+        </p>
+        <ul class="mt-4 space-y-3">
+          {
+            actionRpg.weapons.map((weapon) => (
+              <li class="rounded-xl border border-border bg-surface-card px-4 py-3">
+                <p class="text-sm font-medium text-text-primary">{weapon.name}</p>
+                <p class="mt-1 text-sm text-text-secondary">{weapon.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">Enemies</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <p class="mt-6 text-sm leading-relaxed text-text-secondary">
+          {actionRpg.enemiesIntro}
+        </p>
+        <ul class="mt-4 space-y-3">
+          {
+            actionRpg.enemies.map((enemy) => (
+              <li class="rounded-xl border border-border bg-surface-card px-4 py-3">
+                <p class="text-sm font-medium text-text-primary">{enemy.name}</p>
+                <p class="mt-1 text-sm text-text-secondary">{enemy.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Combat & world</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <ul class="mt-6 max-w-3xl space-y-3 text-sm leading-relaxed text-text-secondary md:text-base">
+        {actionRpg.world.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Architecture</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <p class="mt-6 max-w-3xl text-sm leading-relaxed text-text-secondary md:text-base">
+        {actionRpg.technical}
+      </p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Controls</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 overflow-hidden rounded-xl border border-border">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-surface-elevated text-text-muted">
+            <tr>
+              <th class="px-4 py-3 font-medium">Input</th>
+              <th class="px-4 py-3 font-medium">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              actionRpg.controls.map((row) => (
+                <tr class="border-t border-border">
+                  <td class="px-4 py-3 font-mono text-text-primary">{row.input}</td>
+                  <td class="px-4 py-3 text-text-secondary">{row.action}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Technologies</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {actionRpg.stack.map((tech) => <TechTag label={tech} />)}
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Features</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+        {
+          actionRpg.features.map((feature) => (
+            <li class="rounded-xl border border-border bg-surface-card px-4 py-3 text-sm leading-relaxed text-text-secondary">
+              {feature}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
