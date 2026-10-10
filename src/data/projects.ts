@@ -11,6 +11,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "wheel-gamble",
+    name: "Gamble Wheel",
+    description:
+      "A push-your-luck wheel-of-fortune game for Android, built in Unity 2021.3 LTS. Spin for growing rewards, risk a bomb that wipes the run, and cash out only on bomb-free silver and golden zones. Written in C# with an MVP architecture, DOTween, and TextMeshPro.",
+    technologies: ["Unity 2021.3", "C#", "DOTween", "TextMeshPro"],
+    videoId: "0culSJfXpaw",
+    caseStudyHref: "/projects/wheel-gamble",
+    githubUrl: "https://github.com/farabisina25/Vertigo_Case",
+    featured: true,
+  },
+  {
     id: "action-rpg",
     name: "Legend of the Forest",
     description:
