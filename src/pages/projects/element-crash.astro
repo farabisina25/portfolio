@@ -1,0 +1,151 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import TechTag from "../../components/ui/TechTag.astro";
+import GitHubIcon from "../../components/icons/GitHubIcon.astro";
+import { elementCrash } from "../../data/elementCrash";
+import { profile } from "../../data/profile";
+
+const embedUrl = `https://www.youtube-nocookie.com/embed/${elementCrash.videoId}?rel=0`;
+---
+
+<Layout
+  title={`${elementCrash.name} | ${profile.name}`}
+  description={elementCrash.summary}
+>
+  <Header />
+
+  <main class="mx-auto max-w-5xl px-6 pt-28 pb-16">
+    <a
+      href="/#projects"
+      class="text-sm text-text-secondary transition-colors hover:text-text-primary"
+    >
+      ← Back to projects
+    </a>
+
+    <p class="mt-8 font-mono text-xs uppercase tracking-wider text-accent">
+      Match puzzle · Unity 6
+    </p>
+    <div class="mt-3 flex items-start justify-between gap-4">
+      <h1 class="text-3xl font-semibold tracking-tight text-text-primary md:text-5xl">
+        {elementCrash.name}
+      </h1>
+      <a
+        href={elementCrash.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${elementCrash.name} GitHub repository`}
+        class="mt-2 shrink-0 text-text-muted transition-colors hover:text-text-primary"
+      >
+        <GitHubIcon class="h-6 w-6" />
+      </a>
+    </div>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-text-secondary md:text-lg">
+      {elementCrash.summary}
+    </p>
+
+    <div class="mt-8 overflow-hidden rounded-2xl border border-border bg-black">
+      <div class="aspect-video">
+        <iframe
+          src={embedUrl}
+          title={`${elementCrash.name} gameplay`}
+          class="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Overview</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-text-secondary md:text-base">
+        {elementCrash.overview.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <section class="mt-14 grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">Specials</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <p class="mt-6 text-sm leading-relaxed text-text-secondary">
+          {elementCrash.specialsIntro}
+        </p>
+        <ul class="mt-4 space-y-3">
+          {
+            elementCrash.specials.map((item) => (
+              <li class="rounded-xl border border-border bg-surface-card px-4 py-3">
+                <p class="text-sm font-medium text-text-primary">{item.name}</p>
+                <p class="mt-1 text-sm text-text-secondary">{item.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">Obstacles</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <ul class="mt-6 space-y-3">
+          {
+            elementCrash.obstacles.map((item) => (
+              <li class="rounded-xl border border-border bg-surface-card px-4 py-3">
+                <p class="text-sm font-medium text-text-primary">{item.name}</p>
+                <p class="mt-1 text-sm text-text-secondary">{item.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Architecture</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-text-secondary md:text-base">
+        {elementCrash.architecture.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <section class="mt-14 grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">Unity</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <p class="mt-6 text-sm leading-relaxed text-text-secondary md:text-base">
+          {elementCrash.unity}
+        </p>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold text-text-primary">C#</h2>
+        <div class="mt-4 h-px w-12 bg-accent"></div>
+        <p class="mt-6 text-sm leading-relaxed text-text-secondary md:text-base">
+          {elementCrash.csharp}
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Technologies</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {elementCrash.stack.map((tech) => <TechTag label={tech} />)}
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-xl font-semibold text-text-primary">Features</h2>
+      <div class="mt-4 h-px w-12 bg-accent"></div>
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+        {
+          elementCrash.features.map((feature) => (
+            <li class="rounded-xl border border-border bg-surface-card px-4 py-3 text-sm leading-relaxed text-text-secondary">
+              {feature}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

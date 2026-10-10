@@ -13,6 +13,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "element-crash",
+    name: "Element Crash",
+    description:
+      "A Royal Match–style match puzzle built in Unity 6. Tap connected groups of same-colored cubes to clear them within a move limit. Larger groups become rockets or TNT, and the board includes stones, vases, and chalice boxes. Written in C# with a model/view split and JSON-driven levels.",
+    technologies: ["Unity 6", "C#", "uGUI", "Input System"],
+    videoId: "YnG2MRLdEYI",
+    caseStudyHref: "/projects/element-crash",
+    githubUrl: "https://github.com/farabisina25/DreamGames_CaseStudy",
+    featured: true,
+  },
+  {
     id: "swordman",
     name: "Swordman",
     description:
