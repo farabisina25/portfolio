@@ -5,11 +5,25 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   videoId?: string;
+  /** Portrait gameplay, such as a YouTube Short. */
+  verticalVideo?: boolean;
   caseStudyHref?: string;
   featured?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: "swordman",
+    name: "Swordman",
+    description:
+      "A top-down 2D arena brawler for four fighters. Swords picked off the ground orbit you and hit on contact — there is no attack button. Blade clashes break both swords, a body hit costs one of three hit points, and a kill pays a three-sword bounty. Built in Unity 6 with C#, URP 2D, and Physics2D.",
+    technologies: ["Unity 6", "C#", "URP 2D", "Physics2D"],
+    videoId: "OHZ-3Nr9CoI",
+    verticalVideo: true,
+    caseStudyHref: "/projects/swordman",
+    githubUrl: "https://github.com/farabisina25/LoopGames_Case",
+    featured: true,
+  },
   {
     id: "wheel-gamble",
     name: "Gamble Wheel",
