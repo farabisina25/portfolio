@@ -3,5 +3,5 @@ export const contact = {
   phone: "+90 545 734 59 06",
   location: "Ankara, Turkey",
   availability:
-    "Open to new opportunities in backend development, cloud services, and full-stack projects.",
+    "Open to game development roles, and to software work in backend, cloud, and full-stack projects.",
 } as const;

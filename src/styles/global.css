@@ -4,19 +4,20 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-surface: #09090b;
-  --color-surface-elevated: #111113;
-  --color-surface-card: #18181b;
-  --color-border: #27272a;
-  --color-border-subtle: #1f1f23;
-  --color-text-primary: #fafafa;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
+  --color-surface: #f6f1e8;
+  --color-surface-elevated: #fffaf4;
+  --color-surface-card: #ffffff;
+  --color-border: #e6ddd0;
+  --color-border-subtle: #efe8dc;
+  --color-text-primary: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #78716c;
+  --color-accent: #0f766e;
+  --color-accent-hover: #115e59;
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 

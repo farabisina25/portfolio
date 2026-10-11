@@ -9,6 +9,7 @@ export interface Project {
   verticalVideo?: boolean;
   caseStudyHref?: string;
   featured?: boolean;
+  category: "game" | "software";
 }
 
 export const projects: Project[] = [
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     caseStudyHref: "/projects/element-crash",
     githubUrl: "https://github.com/farabisina25/DreamGames_CaseStudy",
     featured: true,
+    category: "game",
   },
   {
     id: "swordman",
@@ -34,6 +36,7 @@ export const projects: Project[] = [
     caseStudyHref: "/projects/swordman",
     githubUrl: "https://github.com/farabisina25/LoopGames_Case",
     featured: true,
+    category: "game",
   },
   {
     id: "wheel-gamble",
@@ -45,6 +48,7 @@ export const projects: Project[] = [
     caseStudyHref: "/projects/wheel-gamble",
     githubUrl: "https://github.com/farabisina25/Vertigo_Case",
     featured: true,
+    category: "game",
   },
   {
     id: "action-rpg",
@@ -56,6 +60,7 @@ export const projects: Project[] = [
     caseStudyHref: "/projects/action-rpg",
     githubUrl: "https://github.com/farabisina25/LegendOfTheForest",
     featured: true,
+    category: "game",
   },
   {
     id: "unicorn",
@@ -64,6 +69,7 @@ export const projects: Project[] = [
       "Bilkent CS102 capstone project. Android app that matches students based on lifestyle, music taste, and daily habits. Firebase Authentication for identity, Realtime Database for cloud-synced profiles and events; includes roommate matching, social connections, and used textbook marketplace modules.",
     technologies: ["Java", "Android", "Firebase", "Gradle"],
     githubUrl: "https://github.com/farabisina25/CS102-Project-Unicorn",
+    category: "software",
   },
   {
     id: "three-shell-game",
@@ -72,6 +78,7 @@ export const projects: Project[] = [
       "Unity mobile game built during the Creasaur internship. Implements the classic shell game with a ball hidden under one of three cups and randomized movements; players score by picking the correct cup. Game loop, animations, and score management structured with modular C# scripts.",
     technologies: ["C#", "Unity", "Mobile"],
     githubUrl: "https://github.com/farabisina25/three_shell_game",
+    category: "game",
   },
   {
     id: "bowling-game",
@@ -80,6 +87,7 @@ export const projects: Project[] = [
       "Physics-driven bowling simulation in Unity. Ball–pin collisions modeled with Rigidbody physics; levels complete when all pins fall, with progressively increasing difficulty. Built level progression, physics tuning, and game state management during the Creasaur internship.",
     technologies: ["C#", "Unity", "Rigidbody", "Mobile"],
     githubUrl: "https://github.com/farabisina25/bowling_game",
+    category: "game",
   },
   {
     id: "cs319",
@@ -88,6 +96,7 @@ export const projects: Project[] = [
       "Bilkent CS319 capstone project. Three-tier full-stack architecture with a Node.js REST API, React SPA, and PostgreSQL. Covers authentication, relational data modeling, and end-to-end web development with a clear frontend–backend separation.",
     technologies: ["Node.js", "React", "PostgreSQL", "JavaScript"],
     githubUrl: "https://github.com/farabisina25/CS319-Project",
+    category: "software",
   },
   {
     id: "cs353",
@@ -96,6 +105,7 @@ export const projects: Project[] = [
       "Bilkent CS353 capstone project. RESTful Flask backend, PostgreSQL for relational data management, and ReportLab for PDF report generation. Multi-container deployment with Docker Compose; includes schema design, query optimization, and a containerized dev environment.",
     technologies: ["Flask", "Python", "PostgreSQL", "Docker", "ReportLab"],
     githubUrl: "https://github.com/farabisina25/CS353-Project",
+    category: "software",
   },
   {
     id: "football-app",
@@ -104,6 +114,7 @@ export const projects: Project[] = [
       "Turn-based football draft game with wheel-based team selection, unique player pool drafting, and turn tracking. PHP/MySQL backend for session management, JavaScript frontend for interactive UI, and LocalStorage for client-side state persistence.",
     technologies: ["JavaScript", "PHP", "MySQL", "HTML", "CSS"],
     githubUrl: "https://github.com/farabisina25/football-app",
+    category: "game",
   },
   {
     id: "x-clone-rn",
@@ -118,6 +129,7 @@ export const projects: Project[] = [
       "Cloudinary",
     ],
     githubUrl: "https://github.com/farabisina25/x-clone-rn",
+    category: "software",
   },
   {
     id: "echofinder",
@@ -134,5 +146,6 @@ export const projects: Project[] = [
       "Docker",
     ],
     githubUrl: "https://github.com/farabisina25/echofinder-test",
+    category: "software",
   },
 ];

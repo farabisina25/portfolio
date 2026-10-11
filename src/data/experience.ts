@@ -12,34 +12,14 @@ export interface TimelineEntry {
 
 export const timeline: TimelineEntry[] = [
   {
-    id: "jotform-backend-support",
+    id: "yks-mentor",
     type: "work",
-    title: "Backend Support Engineer",
-    organization: "Jotform",
-    location: "Ankara, Turkey",
-    period: "Nov 2025 – 2026",
-    description:
-      "Provided operational support for backend infrastructure, production issue triage, and coordination with development teams.",
-  },
-  {
-    id: "netas-cloud-intern",
-    type: "work",
-    title: "Cloud Services Intern",
-    organization: "NETAŞ",
+    title: "Student Mentor",
+    organization: "YKS Boğaziçi",
     location: "Turkey",
-    period: "Aug 2025 – Sep 2025",
+    period: "2023 – 2024",
     description:
-      "Summer internship focused on cloud services and infrastructure operations in enterprise cloud environments.",
-  },
-  {
-    id: "jotform-backend-intern",
-    type: "work",
-    title: "Backend Developer Intern",
-    organization: "Jotform",
-    location: "Ankara, Turkey",
-    period: "Jun 2025 – Jul 2025",
-    description:
-      "Contributed to backend development workflows including API layers, service logic, and team code review practices.",
+      "Voluntary mentorship for high school students, supporting them in planning their future careers.",
   },
   {
     id: "creasaur-game-intern",
@@ -52,14 +32,34 @@ export const timeline: TimelineEntry[] = [
       "Built mobile games with Unity and C#, working on physics-based mechanics and level design.",
   },
   {
-    id: "yks-mentor",
+    id: "jotform-backend-intern",
     type: "work",
-    title: "Student Mentor",
-    organization: "YKS Boğaziçi",
-    location: "Turkey",
-    period: "2023 – 2024",
+    title: "Backend Developer Intern",
+    organization: "Jotform",
+    location: "Ankara, Turkey",
+    period: "Jun 2025 – Aug 2025",
     description:
-      "Volunteer mentorship for high school students on university applications and career planning.",
+      "Contributed to backend development workflows including API layers, service logic, and team code review practices.",
+  },
+  {
+    id: "netas-cloud-intern",
+    type: "work",
+    title: "Cloud Services Intern",
+    organization: "NETAŞ",
+    location: "Turkey",
+    period: "Aug 2025 – Sep 2025",
+    description:
+      "Summer internship focused on cloud services and infrastructure operations in enterprise cloud environments.",
+  },
+  {
+    id: "jotform-backend-support",
+    type: "work",
+    title: "Backend Support Engineer",
+    organization: "Jotform",
+    location: "Ankara, Turkey",
+    period: "Nov 2025 – Jun 2026",
+    description:
+      "Provided operational support for backend infrastructure, production issue triage, and coordination with development teams.",
   },
   {
     id: "bsc-cs",

@@ -2,21 +2,18 @@
 import { timeline } from "../data/experience";
 import SectionHeading from "./ui/SectionHeading.astro";
 
-const typeLabels = {
-  work: "Experience",
-  education: "Education",
-} as const;
+const experience = timeline.filter((entry) => entry.type === "work");
 ---
 
 <section id="experience" class="py-20" aria-labelledby="experience-heading">
   <SectionHeading
-    title="Experience & Education"
-    subtitle="My professional journey and academic background."
+    title="Experience"
+    subtitle="Internships, mentoring, and professional roles."
   />
 
   <ol class="relative space-y-8 border-l border-border pl-6">
     {
-      timeline.map((entry) => (
+      experience.map((entry) => (
         <li class="relative">
           <span
             class="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-accent bg-surface"
@@ -26,7 +23,7 @@ const typeLabels = {
           <div class="rounded-xl border border-border bg-surface-card p-5 transition-colors hover:bg-surface-elevated">
             <div class="flex flex-wrap items-center gap-2">
               <span class="font-mono text-xs uppercase tracking-wider text-accent">
-                {typeLabels[entry.type]}
+                Experience
               </span>
               <span class="text-text-muted">·</span>
               <time class="text-sm text-text-muted">{entry.period}</time>

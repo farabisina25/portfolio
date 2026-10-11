@@ -4,21 +4,94 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import ProjectCard from "./ProjectCard.astro";
 import FeaturedProject from "./FeaturedProject.astro";
 
-const featured = projects.filter((project) => project.featured);
-const rest = projects.filter((project) => !project.featured);
+const games = projects.filter((project) => project.category === "game");
+const software = projects.filter((project) => project.category === "software");
+const featuredGames = games.filter((project) => project.featured);
+const otherGames = games.filter((project) => !project.featured);
+
+const tabBase =
+  "rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200";
+const tabSelected = "bg-surface-card text-accent shadow-sm";
+const tabIdle = "text-text-secondary hover:text-text-primary";
 ---
 
 <section id="projects" class="py-20" aria-labelledby="projects-heading">
-  <SectionHeading
-    title="Projects"
-    subtitle="A selection of open-source and personal projects I've built."
-  />
+  <SectionHeading title="Projects" />
 
-  <div class="flex flex-col gap-5">
-    {featured.map((project) => <FeaturedProject project={project} />)}
+  <div
+    class="mb-8 inline-flex rounded-lg border border-border bg-surface-elevated p-1"
+    role="tablist"
+    aria-label="Project categories"
+  >
+    <button
+      type="button"
+      id="tab-games"
+      class:list={[tabBase, tabSelected]}
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-games"
+      data-project-tab="games"
+      data-selected-class={tabSelected}
+      data-idle-class={tabIdle}
+    >
+      Games
+    </button>
+    <button
+      type="button"
+      id="tab-software"
+      class:list={[tabBase, tabIdle]}
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-software"
+      tabindex="-1"
+      data-project-tab="software"
+      data-selected-class={tabSelected}
+      data-idle-class={tabIdle}
+    >
+      Software
+    </button>
   </div>
 
-  <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-    {rest.map((project) => <ProjectCard project={project} />)}
+  <div id="panel-games" role="tabpanel" aria-labelledby="tab-games">
+    <div class="flex flex-col gap-5">
+      {featuredGames.map((project) => <FeaturedProject project={project} />)}
+    </div>
+
+    <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {otherGames.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </div>
+
+  <div id="panel-software" role="tabpanel" aria-labelledby="tab-software" hidden>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {software.map((project) => <ProjectCard project={project} />)}
+    </div>
   </div>
 </section>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>("[data-project-tab]");
+
+  function selectTab(name: string) {
+    for (const tab of tabs) {
+      const active = tab.dataset.projectTab === name;
+      const panel = document.getElementById(tab.getAttribute("aria-controls") ?? "");
+      const selectedClass = tab.dataset.selectedClass ?? "";
+      const idleClass = tab.dataset.idleClass ?? "";
+
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      tab.classList.remove(...selectedClass.split(" "), ...idleClass.split(" "));
+      tab.classList.add(...(active ? selectedClass : idleClass).split(" "));
+
+      if (panel) panel.hidden = !active;
+    }
+  }
+
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => {
+      const name = tab.dataset.projectTab;
+      if (name) selectTab(name);
+    });
+  }
+</script>
