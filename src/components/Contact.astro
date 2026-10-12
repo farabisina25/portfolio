@@ -15,13 +15,13 @@ import LinkedInIcon from "./icons/LinkedInIcon.astro";
   />
 
   <div
-    class="rounded-xl border border-border bg-surface-card p-8 md:p-10"
+    class="rounded-xl border border-border bg-surface-card p-5 sm:p-8 md:p-10"
   >
     <p class="text-base text-text-secondary">{contact.availability}</p>
 
     <a
       href={`mailto:${contact.email}`}
-      class="mt-4 inline-flex items-center gap-2 text-lg font-medium text-text-primary transition-colors hover:text-accent"
+      class="mt-4 inline-flex max-w-full items-center gap-2 break-all text-lg font-medium text-text-primary transition-colors hover:text-accent"
     >
       <MailIcon class="h-5 w-5" />
       {contact.email}
